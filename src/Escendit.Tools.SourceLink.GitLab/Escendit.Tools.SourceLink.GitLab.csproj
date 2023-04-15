@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <NoWarn>$(NoWarn);NU5128</NoWarn>
+        <IsPackable>true</IsPackable>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <Description>Provides properties for SourceLink to simplify the integration with GitLab.</Description>
+        <PackageTags>sourcelink;source;link;gitlab;defaults</PackageTags>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Escendit.Tools.SourceLink.Common" Version="0.1.0-rc.14">
+            <PrivateAssets>runtime; build; native; contentfiles</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.SourceLink.GitLab" Version="1.1.1">
+            <PrivateAssets>runtime; build; native; contentfiles</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+        <!-- TFM -->
+        <None Pack="true" PackagePath="build" Include="Escendit.Tools.SourceLink.GitLab.props" />
+        <!-- TFMs -->
+        <None Pack="true" PackagePath="buildMultiTargeting" Include="Escendit.Tools.SourceLink.GitLab.props" />
+        <!-- Transitive -->
+        <None Pack="true" PackagePath="buildTransitive" Include="Escendit.Tools.SourceLink.GitLab.props" />
+        <!-- README -->
+        <None Pack="true" PackagePath="" Include="$(SolutionDir)/README.md" />
+    </ItemGroup>
+</Project>
